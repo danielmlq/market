@@ -1,0 +1,321 @@
+* {
+    outline: 0!important;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    color:#222;
+    font-size: 15px;
+    font-weight: normal;
+}
+svg,
+img {
+    max-width: 100%;
+	height:auto;
+	width:auto;
+}
+.text-center{
+    text-align:center;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+p{
+    margin-top:0;
+}
+
+.main-wrapper {
+    padding: 50px 0;
+}
+.chart-wrap{
+    color: #777;
+    border: 2px solid #ddd;
+    padding: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+ul.chart-date-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0  5px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 13px;
+    justify-content: center;
+}
+ul.chart-date-list li {
+    margin: 0 8px;
+    line-height:120%;
+}
+ul.chart-date-list li.active {
+    font-size: 24px;
+}
+.chart-header p {
+    font-size: 12px;
+}
+.chart-header {
+    margin-bottom: 20px;
+}
+.chart-body {
+    font-size: 14px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.chart-box {
+    position: relative;
+    margin-top: 40px;
+    z-index: 1;
+    padding-bottom: 40px;
+}
+.chart-box .item {
+    display: flex;
+    align-items: center;
+}
+.chart-box .item + .item {
+    margin-top: 10px;
+}
+.chart-box .item .chart-label {
+    text-decoration: underline;
+    font-size: 13px;
+    font-weight: 500;
+    flex-grow: 1;
+    text-align: center;
+}
+.chart-box .item .chart-label em{
+    color:red;
+    font-style: normal;
+    font-weight: normal;
+    margin-left:2px;
+}
+.chart-box .item .chart-line {
+    flex-grow: 1;
+    position: relative;
+    max-width:45%;
+    width:45%;
+}
+.chart-box .item .chart-line > span {
+    display: block;
+    background: #008000;
+    color: #fff;
+    padding: 0px 5px;
+    line-height: 18px;
+    font-size: 10px;
+    margin-left: auto;
+    transition:all 0.5s;
+}
+.owl-carousel .chart-box .item .chart-line > span {
+    max-width: 0;
+    padding:0;
+    transition-delay: 0.2s;
+}
+.owl-carousel .active .chart-box .item .chart-line > span {
+    max-width: 100%;
+    padding:0 5px;
+}
+.chart-box .item .chart-line.chart-line-right > span {
+    text-align: right;
+    margin-left: 0;
+}
+.chart-box .item-label {
+    position: absolute;
+    width: 45%;
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    z-index:-1;
+}
+.chart-box .item-label span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+    justify-content: center;
+}
+.chart-box .item-label.item-right {
+    left: auto;
+    right:0;
+}
+.chart-box .item-label.item-right span {
+    left: auto;
+    right:0;
+}
+.chart-box .item-label span:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 35px;
+    border-left: 2px dashed #ffd1cb;
+    margin: auto;
+    width: 0;
+}
+.chart-box .item-label.item-right span:before {
+    border-color:#d3f6d6;
+}
+.chart-body-wrap {
+    display: flex;
+    align-items: flex-end;
+}
+.chart-body-wrap .chart-body {
+    flex-grow: 1;
+}
+.chart-body-wrap .count-left {
+    order: -1;
+}
+.all-count-wrap {
+    border: 2px solid;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 63px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    color: #93cc96;
+    z-index: 1;
+    margin-bottom:20px;
+    background: linear-gradient(to bottom, rgba(114,186,121,1) 0%,rgba(27,91,27,1) 100%);
+}
+.all-count-wrap.count-left {
+    color: #e884a3;
+    background: linear-gradient(to bottom, rgba(162,41,84,1) 0%,rgba(124,16,56,1) 100%);
+}
+.all-count-wrap .shape-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.all-count-wrap .shape-wave:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 100%;
+    z-index: -1;
+    height:200px;
+    content:"";
+    display:block;
+    background: url("../images/shape-wave.svg") repeat-x 0 bottom;
+    background-size:150px auto;
+    animation-name:shape-wave;
+    animation-duration:5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes shape-wave {
+    0% {background-position: 0 bottom;}
+    100% {background-position: 300px bottom;}
+}
+.chart-carousel.owl-carousel .owl-nav button[class*="owl-"] {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto -20px;
+    font-size: 0;
+    color:#999;
+    transition:all 0.5s;
+}
+.chart-carousel.owl-carousel .owl-nav button[class*="owl-"]:hover {
+    color:#000;
+}
+.chart-carousel.owl-carousel .owl-nav button[class*="owl-"]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    border-top: 2px solid;
+    border-left: 2px solid;
+    transform: rotate(-45deg);
+    margin: auto;
+}
+.chart-carousel.owl-carousel .owl-nav button[class*="owl-"].owl-next {
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+
+
+@media (min-width:768px) and (max-width:991px){
+    .all-count-wrap {
+        width: 90px;
+        height: 90px;
+        font-size: 45px;
+    }
+}
+
+
+@media (max-width:767px){
+    .chart-wrap {
+        padding: 15px;
+    }
+    ul.chart-date-list {
+        font-size: 12px;
+    }
+    .all-count-wrap {
+        width: 90px;
+        height: 90px;
+        font-size: 45px;
+        margin-bottom:0;
+    }
+    .chart-body-wrap {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .chart-body-wrap .count-left {
+        order: 0;
+    }
+    .chart-body-wrap .chart-body {
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    .chart-box .item .chart-label {
+        font-size: 12px;
+    }
+    .chart-box .item .chart-line {
+        max-width: 40%;
+        width: 40%;
+    }
+    .chart-carousel.owl-carousel .owl-nav button[class*="owl-"] {
+        margin: auto -8px;
+    }
+    .chart-body {
+        font-size: 12px;
+    }
+    .chart-box .item-label span:before {
+        bottom: 20px;
+    }
+    .chart-box {
+        margin-top: 25px;
+    }
+
+}
